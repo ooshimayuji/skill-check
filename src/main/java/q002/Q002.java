@@ -1,5 +1,7 @@
 package q002;
 
+import java.util.*;
+
 /**
  * Q002 並べ替える
  *
@@ -45,5 +47,31 @@ public class Q002 {
             "14,林",
             "9,清水"
     };
+
+	public static void main(String[] args) {
+
+		int[] idList = new int[dataList.length] ;
+		int i = 0;
+   
+		// IDを抽出
+		for (String str: dataList){
+			String[] cutStr = str.split(",", 0);
+			idList[i] = Integer.parseInt(cutStr[0]);
+			i++;
+		}
+
+		// IDをソート
+		Arrays.sort(idList);
+
+		// ソートしたID順に、dataListを表示
+		for (int id: idList) {
+			for (String ptintStr: dataList) {
+				String[] cutStr = ptintStr.split(",", 0);
+				if (id == Integer.parseInt(cutStr[0])) {
+					System.out.println(ptintStr);
+				}
+			}
+		}
+	}
 }
-// 完成までの時間: xx時間 xx分
+// 完成までの時間: 50分
